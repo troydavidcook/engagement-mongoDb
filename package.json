@@ -1,0 +1,11 @@
+{
+  "name": "engagement_mongodb",
+  "version": "1.0.0",
+  "description": "A viewing of Kevin and Dallyn's engagement photos.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Troy David Cook",
+  "license": "ISC"
+}
