@@ -14,20 +14,20 @@ const seedData = [
 ];
 
 const seedDatabase = () => {
-  Image.find({}, (err) => {
+  Image.remove({}, (err) => {
     if (err) {
       console.log('Error: ', err);
-    } else {
-      seedData.forEach((seed) => {
-        Image.create(seed, (err, photo) => {
-          if (err) {
-            console.log('Error: ', err);
-          } else {
-            console.log('Image added.');
-          }
-        });
-      });
     }
+    console.log('Images removed');
+    seedData.forEach((seed) => {
+      Image.create(seed, (err, photo) => {
+        if (err) {
+          console.log('Error: ', err);
+        } else {
+          console.log('Image added.');
+        }
+      });
+    });
   });
 };
 

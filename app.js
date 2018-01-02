@@ -50,7 +50,24 @@ app.get('/', (req, res) => {
 });
 
 app.get('/photos', (req, res) => {
-  res.render('/photos');
+  Image.find({}, (err, photos) => {
+    if (err) {
+      console.log('Error: ', err);
+    } else {
+      res.render('photos', { photos });
+    }
+  });
+});
+
+app.get('/photos/:id', (req, res) => {
+  const imageId = req.params.id;
+  Image.findById(imageId, (err, fetchedImage) => {
+    if (err) {
+      console.log('Error: ', err);
+    } else {
+      res.render('show', { photo: fetchedImage });
+    }
+  });
 });
 
 const port = process.env.PORT || 3000;
