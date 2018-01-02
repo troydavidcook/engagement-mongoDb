@@ -45,10 +45,16 @@ app.set('view engine', 'ejs');
 //  Restful routing below
 // =======================
 
+// Index routes
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('./index');
 });
 
+app.get('/signup', (req, res) => {
+  res.render('/signup');
+});
+
+// GET Routes
 app.get('/photos', (req, res) => {
   Image.find({}, (err, photos) => {
     if (err) {
@@ -59,6 +65,7 @@ app.get('/photos', (req, res) => {
   });
 });
 
+// SHOW Routes
 app.get('/photos/:id', (req, res) => {
   const imageId = req.params.id;
   Image.findById(imageId, (err, fetchedImage) => {
