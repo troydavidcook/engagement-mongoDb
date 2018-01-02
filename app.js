@@ -54,6 +54,10 @@ app.get('/signup', (req, res) => {
   res.render('/signup');
 });
 
+app.get('/login', (req, res) => {
+  res.render('./index/login');
+});
+
 // GET Routes
 app.get('/photos', (req, res) => {
   Image.find({}, (err, photos) => {
