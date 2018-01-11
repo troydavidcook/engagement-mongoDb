@@ -55,7 +55,7 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('./index/login');
+  res.render('./index/login'); 
 });
 
 // GET Routes
