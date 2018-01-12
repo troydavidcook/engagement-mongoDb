@@ -38,8 +38,20 @@ h3:first-child.logo {
     text-shadow: none;
 }
 
+.ui.menu {
+    border-radius: 0;
+}
+
 .two-wide-column {
     padding-top: 100px;
+}
+
+.eight.wide.column {
+    margin-left: 10px;
+}
+
+.four.wide.column {
+    margin-right: 10px;
 }
 
 .ui.container.segment {
@@ -68,6 +80,10 @@ h3:first-child.logo {
 
 .intro {
     margin-bottom: 750px;
+}
+
+.index-forms {
+   margin-top: 25%;
 }
 
 hr.style-two {

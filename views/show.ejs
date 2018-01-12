@@ -1,17 +1,40 @@
 <% include ./partials/header %>
 
-<div class="ui container main">
-    <div class="ui container segment">
-            <img class="ui centered medium bordered image huge" src="<%= photo.url %>" alt="">
-            <h3>Log in To Leave a Comment!</h3>
-            <hr class="style-two">
-            <form id="show-form" class="ui centered" action="">
-                <div class="ui input mini">
-                    <input type="password" name="password" placeholder="Password">
+    <div class="row">
+        <div class="ui four column grid">
+            <div class="eight wide column">
+                <div class="ui container segment">
+                    <img class="ui centered medium bordered image huge" src="<%= image.url%>" alt="">
+                    <h3>Log in To Leave a Comment!</h3>
+                    <hr class="style-two">
                 </div>
-                <button class="ui teal basic button mini">Login</button>
-            </form>
-    </div>
-</div>
+            </div>
 
-<% include ./partials/footer %>
+            <div class="four wide right floated column">
+                <div class="ui container segment">
+                    <form class="ui centered index-forms" action="/signup" method=POST>
+                        <div class="ui input mini">
+                            <input type="text" name="username" placeholder="username">
+                        </div>
+                        <div class="ui input mini">
+                            <input type="password" name="password" placeholder="password">
+                        </div>
+                        <button class="ui teal basic button mini">Signup</button>
+                    </form>
+
+                    <form class="ui centered index-forms" action="/login" method="POST">
+                        <div class="ui input mini">
+                            <input type="text" name="username" placeholder="username">
+                        </div>
+                        <div class="ui input mini">
+                            <input type="password" name="password" placeholder="password">
+                        </div>
+                        <button class="ui teal basic button mini">Login</button>
+                    </form>
+                </div>
+            </div>    
+        </div>
+    </div>    
+    
+
+    <% include ./partials/footer %>

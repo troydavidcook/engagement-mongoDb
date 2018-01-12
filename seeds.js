@@ -20,7 +20,7 @@ const seedDatabase = () => {
     }
     console.log('Images removed');
     seedData.forEach((seed) => {
-      Image.create(seed, (err, photo) => {
+      Image.create(seed, (err) => {
         if (err) {
           console.log('Error: ', err);
         } else {
@@ -30,5 +30,4 @@ const seedDatabase = () => {
     });
   });
 };
-
 module.exports = seedDatabase;
