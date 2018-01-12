@@ -92,6 +92,11 @@ app.get('/images', (req, res) => {
   });
 });
 
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/index');
+});
+
 // SHOW Routes
 app.get('/images/:id', (req, res) => {
   const imageId = req.params.id;
