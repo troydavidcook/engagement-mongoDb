@@ -4,8 +4,8 @@
         <div class="ui container segment">
             <h3>Welcome to Kevin's proposal to Dallyn! Scroll down to see how it happened</h3>
 
-            <% images.forEach((image) => { %>
-                <a href="/images/<%= image._id %>"><img class="ui centered image bordered massive" src="<%= image.url %>" alt=""></a>
+            <% image.forEach((photo) => { %>
+                <a href="/images/<%= photo._id %>"><img class="ui centered image bordered massive" src="<%= photo.url %>" alt=""></a>
         <hr class="style-two">
             <% }); %>
         </div>

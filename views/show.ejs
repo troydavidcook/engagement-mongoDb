@@ -10,26 +10,26 @@
                 </div>
             </div>
 
-            <div class="four wide right floated column">
-                <div class="ui container segment">
-                    <form class="ui centered index-forms" action="/signup" method=POST>
-                        <div class="ui input mini">
-                            <input type="text" name="username" placeholder="username">
+            <div class="four wide right floated column right-form">
+                <div class="ui container segment form">
+                    <form class="ui form signup" action="/signup" method=POST>
+                        <div class="field">
+                            <input class="ui input small" type="text" name="username" placeholder="username">
                         </div>
-                        <div class="ui input mini">
+                        <div class="field">
                             <input type="password" name="password" placeholder="password">
                         </div>
-                        <button class="ui teal basic button mini">Signup</button>
+                        <button type ="submit" class="ui teal basic button mini signup">Signup</button>
                     </form>
 
-                    <form class="ui centered index-forms" action="/login" method="POST">
-                        <div class="ui input mini">
+                    <form class="ui form" action="/login" method="POST">
+                        <div class="field">
                             <input type="text" name="username" placeholder="username">
                         </div>
-                        <div class="ui input mini">
-                            <input type="password" name="password" placeholder="password">
+                        <div class="field">
+                            <input class="ui transparent input mini" type="password" name="password" placeholder="password">
                         </div>
-                        <button class="ui teal basic button mini">Login</button>
+                        <button type="submit" class="ui teal basic button mini">Login</button>
                     </form>
                 </div>
             </div>    

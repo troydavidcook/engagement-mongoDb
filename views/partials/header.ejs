@@ -22,11 +22,33 @@
             Photos
         </a>
         <div class="header item right">
-            <span><a class="item" href="../signup">
-                Sign Up
-            </a></span>
-            <span><a class="item" href="../login">
-                Login
-            </a></span>
+            <% if (!currentUser) { %>
+                <span><a class="item" href="/signup">
+                    Sign Up
+                </a></span>
+                <span><a class="item" href="/login">
+                    Login
+                </a></span>
+            <% } else { %>    
+                <span><a class="item" href="">
+                    Signed in as <%= currentUser.username %>
+                </a></span>
+                <span><a class="item" href="/logout">
+                    Logout
+                </a></span>
+            <% } %>
         </div>
+    </div>
+
+    <div class="ui container">
+        <% if (error && error.length > 0) { %>
+            <div class="ui negative message">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if (error && success.length > 0) { %>
+            <div class="ui positive message">
+                <%= success %>
+            </div>
+        <% } %>
     </div>

@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class="ui signup-signup column">
+        <h4 class="directions">Signup!</h4>
+        <div class="ui container segment form">
+            <form class="ui form signup" action="/signup" method=POST>
+                <div class="field">
+                    <input class="ui input small" type="text" name="username" placeholder="username">
+                </div>
+                <div class="field">
+                    <input type="password" name="password" placeholder="password">
+                </div>
+                <button type ="submit" class="ui teal basic button mini signup">Signup</button>
+            </form>
+        </div>
+    </div>
+
+<% include ../partials/footer %>
