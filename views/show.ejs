@@ -10,31 +10,51 @@
                 </div>
             </div>
 
-            <div class="four wide right floated column right-form">
-                <div class="ui container segment form">
-                    <form class="ui form signup" action="/signup" method=POST>
-                        <div class="field">
-                            <input class="ui input small" type="text" name="username" placeholder="username">
+            <% if (!currentUser) { %>
+                <div class="four wide right floated column right-form">
+                        <div class="ui container segment form">
+                            <form class="ui form signup" action="/signup" method=POST>
+                                <div class="field">
+                                    <input class="ui input small" type="text" name="username" placeholder="username">
+                                </div>
+                                <div class="field">
+                                    <input type="password" name="password" placeholder="password">
+                                </div>
+                                <button type ="submit" class="ui teal basic button mini signup">Signup</button>
+                            </form>
+        
+                            <form class="ui form" action="/login" method="POST">
+                                <div class="field">
+                                    <input type="text" name="username" placeholder="username">
+                                </div>
+                                <div class="field">
+                                    <input class="ui transparent input mini" type="password" name="password" placeholder="password">
+                                </div>
+                                <button type="submit" class="ui teal basic button mini">Login</button>
+                            </form>
                         </div>
-                        <div class="field">
-                            <input type="password" name="password" placeholder="password">
+                    </div>   
+            <% } else { %>
+                <div class="four wide right floated column right-form">
+                        <div class="ui container segment form">
+                            <form class="ui form" action="/login" method="POST">
+                                <div class="field">
+                                    <textarea name="comment" id="" cols="20" rows="10"></textarea>
+                                </div>
+                                <button type="submit" class="ui teal basic button mini">Leave Comment</button>
+                            </form>
                         </div>
-                        <button type ="submit" class="ui teal basic button mini signup">Signup</button>
-                    </form>
+                    </div>
+            <% } %>
 
-                    <form class="ui form" action="/login" method="POST">
-                        <div class="field">
-                            <input type="text" name="username" placeholder="username">
-                        </div>
-                        <div class="field">
-                            <input class="ui transparent input mini" type="password" name="password" placeholder="password">
-                        </div>
-                        <button type="submit" class="ui teal basic button mini">Login</button>
-                    </form>
-                </div>
-            </div>    
+             
         </div>
     </div>    
     
 
     <% include ./partials/footer %>
+
+
+
+
+    <!-- Working on if there's a current user for showing the form! -->

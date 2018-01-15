@@ -77,7 +77,7 @@ app.post('/signup', (req, res) => {
     }
     passport.authenticate('local')(req, res, () => {
       req.flash('success', `Welcome to The Proposal, ${user.username}!`);
-      return res.redirect('/images');
+      return res.redirect('back');
     });
   });
 });
@@ -89,7 +89,7 @@ app.get('/login', (req, res) => {
 app.post('/login', passport.authenticate(
   'local',
   {
-    successRedirect: '/images',
+    successRedirect: 'back',
     failureRedirect: '/login',
   },
 ), (req, res) => {
