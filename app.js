@@ -19,9 +19,9 @@ const path                  = require('path');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/engagementk&d');
+mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
 
-seedDatabase();
+// seedDatabase();
 
 // ==================
 //   Passport Config
@@ -77,7 +77,7 @@ app.post('/signup', (req, res) => {
     }
     passport.authenticate('local')(req, res, () => {
       req.flash('success', `Welcome to The Proposal, ${user.username}!`);
-      return res.redirect('back');
+      return res.redirect('/images');
     });
   });
 });
@@ -143,7 +143,7 @@ app.post('/images/:id/comments', (req, res) => {
           comment.save();
           image.comments.push(comment);
           image.save();
-          console.log(image);
+          console.log(image.comments);
           req.flash('success', 'Successfully added comment!');
           return res.redirect(`/images/${imageId}`);
         }
