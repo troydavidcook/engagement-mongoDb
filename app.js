@@ -19,9 +19,9 @@ const path                  = require('path');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/engagementk&d');
 
-// seedDatabase();
+seedDatabase();
 
 // ==================
 //   Passport Config
@@ -73,7 +73,7 @@ app.post('/signup', (req, res) => {
     console.log(newUser);
     if (err) {
       req.flash('error', err.message);
-      res.redirect('/signup');
+      return res.redirect('back');
     }
     passport.authenticate('local')(req, res, () => {
       req.flash('success', `Welcome to The Proposal, ${user.username}!`);
@@ -89,7 +89,7 @@ app.get('/login', (req, res) => {
 app.post('/login', passport.authenticate(
   'local',
   {
-    successRedirect: 'back',
+    successRedirect: '/images',
     failureRedirect: '/login',
   },
 ), (req, res) => {
@@ -108,7 +108,7 @@ app.get('/images', (req, res) => {
       console.log('Error: ', err);
     } else {
       res.render('images', { image: images });
-      console.log(images);
+      // console.log(images);
     }
   });
 });
@@ -117,11 +117,61 @@ app.get('/images', (req, res) => {
 app.get('/images/:id', (req, res) => {
   const imageId = req.params.id;
   Image.findById(imageId).populate('comments').exec((err, fetchedImage) => {
-    console.log(fetchedImage);
+    // console.log(fetchedImage);
     if (err) {
       console.log('Error: ', err);
     } else {
       res.render('show', { image: fetchedImage });
+    }
+  });
+});
+
+app.post('/images/:id/comments', (req, res) => {
+  const imageId = req.params.id;
+  Image.findById(imageId, (err, image) => {
+    if (err) {
+      req.flash('error', 'Resolving Issue, Please Check Back.');
+      res.redirect('/images');
+    } else {
+      Comment.create(req.body.comment, (error, comment) => {
+        if (err) {
+          req.flash('error', 'Error connecting to server, please check back later.');
+          res.redirect('/images');
+        } else {
+          comment.author.id = req.user._id;
+          comment.author.username = req.user.username;
+          comment.save();
+          image.comments.push(comment);
+          image.save();
+          console.log(image);
+          req.flash('success', 'Successfully added comment!');
+          return res.redirect(`/images/${imageId}`);
+        }
+      });
+    }
+  });
+});
+
+app.put('/images/:id/comments/:comment_id', (req, res) => {
+  const commentId = req.params.comment_id;
+  const imageId = req.params.id;
+  Comment.findByIdAndUpdate(commentId, req.body.comment, (err, updatedComment) => {
+    if (err) {
+      req.flash('error', 'Comment not found, apologies.');
+      res.redirect(`/images/${imageId}`);
+    } else {
+      res.render(`/images/${imageId}`);
+    }
+  });
+});
+
+app.delete('/images/:id/comments/:comment_id', (req, res) => {
+  const commentId = req.params.comment_id;
+  const imageId = req.params.id;
+  Comment.findByIdAndRemove(commentId, (err) => {
+    if (err) {
+      req.flash('error', 'Comment not found, apologies');
+      res.redirect(`/images/${imageId}`);
     }
   });
 });

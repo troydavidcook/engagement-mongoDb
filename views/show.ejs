@@ -5,13 +5,22 @@
             <div class="eight wide column">
                 <div class="ui container segment">
                     <img class="ui centered medium bordered image huge" src="<%= image.url%>" alt="">
-                    <h3>Log in To Leave a Comment!</h3>
-                    <hr class="style-two">
+                    <hr class="style-two hr-show">
+                    <% if (!currentUser) { %>
+                        <h3 id="comment-instructions">Log in To Leave a Comment!</h3>
+                    <% } %>
+                    <% image.comments.forEach((comment) => { %>
+                    <p id="comment-author"><strong> <%= comment.author.username %></strong>
+                    <span id="comment-date"><%= comment.created.toDateString() %></span></p>
+                    <p id="comment-text"><%= comment.text %></p>
+                    <hr class="style-three">
+                    <% }) %>
                 </div>
             </div>
 
             <% if (!currentUser) { %>
                 <div class="four wide right floated column right-form">
+                        <h4 class="form-title">Singup or Login.</h4>
                         <div class="ui container segment form">
                             <form class="ui form signup" action="/signup" method=POST>
                                 <div class="field">
@@ -36,12 +45,13 @@
                     </div>   
             <% } else { %>
                 <div class="four wide right floated column right-form">
+                        <h4 class="form-title">Leave a comment!</h4>
                         <div class="ui container segment form">
-                            <form class="ui form" action="/login" method="POST">
+                            <form class="ui form" action="/images/<%= image._id %>/comments" method="POST">
                                 <div class="field">
-                                    <textarea name="comment" id="" cols="20" rows="10"></textarea>
+                                    <textarea name="comment[text]" id="" cols="20" rows="10"></textarea>
                                 </div>
-                                <button type="submit" class="ui teal basic button mini">Leave Comment</button>
+                                <button type="submit" class="ui teal basic button mini">Add Comment</button>
                             </form>
                         </div>
                     </div>
@@ -57,4 +67,5 @@
 
 
 
-    <!-- Working on if there's a current user for showing the form! -->
+    <!-- Post comments under photo.id -->
+    <!-- Show edit and delete buttons for comment owner. -->

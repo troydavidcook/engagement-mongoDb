@@ -1,5 +1,11 @@
+
+html {
+    font-family: 'Great Vibes', cursive;
+}
+
 body {
     background: rgba(185, 235, 235, 1);
+    font-family: Florence, cursive;
 }
 
 h3 {
@@ -8,8 +14,29 @@ h3 {
     margin-top: 40px;
     margin-bottom: 15px;
     color: rgba(0, 0,0,0.6);
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.2),
-                 0px -5px 15px rgba(255,255,255,0.3);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+    font-family: 'Great Vibes', cursive;
+}
+
+textarea {
+    height: 130px;
+}
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+}
+
+hr.style-three {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+.hr-show {
+    margin-top: -40px;
+    margin-bottom: 50px;
 }
 
 span#amp {
@@ -19,24 +46,21 @@ span#amp {
     font-style: italic;
     margin-top: 20%;
     text-shadow: 2px 2px 2px rgba(0,0,0,0.2),
-                 0px -5px 15px rgba(255,255,255,0.3);
+                 0px -5px 15px rgba(255,255,255,0.8);
                 
     }
 
-h3:first-child {
-    color: rgba(135, 235, 235, 1);
-    text-align: center;
-    margin-top: 40px;
-    color: rgba(0, 0,0,0.6);
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.2),
-                 0px -5px 15px rgba(255,255,255,0.3);
-}
-
-h3:first-child.logo {
+.logo {
     color: black;
     margin-top: 0;
     text-shadow: none;
+    font-size: 24px;
 }
+
+.item {
+    font-family: Roboto;
+}
+
 
 .directions {
     color: white;
@@ -58,6 +82,7 @@ h3:first-child.logo {
 
 .ui.menu {
     border-radius: 0;
+    background-color: rgba(255,255,255, 0.75);
 }
 
 .two-wide-column {
@@ -70,8 +95,8 @@ h3:first-child.logo {
 }
 
 .four.wide.column {
-    margin-top: 40px;
-    margin-right: 50px;
+    margin-top: 50px;
+    margin-right: 175px;
 }
 
 .ui.container.main {
@@ -102,18 +127,60 @@ h3:first-child.logo {
     height: 300px;
 }
 
+.form-title {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    color: white;
+    font-size: 34px;
+    font-weight: 200;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+}
+
+#comment-instructions {
+    margin-top: -30px;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+}
+
+#comment-date {
+    float: right;
+    margin-right: 15px;
+}
+
 .intro {
     margin-bottom: 750px;
 }
 
-
-hr.style-two {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+.ui.teal.basic.button.mini.signup {
+    margin-bottom: 15px;
 }
 
 #show-form {
     text-align: center;
     margin-top: 15px;
+}
+
+#a-leave-comment {
+    float: right;
+    font-family: 'Great Vibes', cursive;
+    font-size: 24px;
+    color: black;
+    margin-top: -30px;
+    margin-right: 78px;
+}
+
+#comment-author {
+    font-family: Roboto;
+    font-size: .9em;
+    margin-bottom: 15px;
+}
+
+#comment-text {
+    font-size: .9em;
+}
+
+#scroll-down-text {
+    margin-top: 20px;
+    margin-bottom: -15px;
+    font-size: 26px;
 }
