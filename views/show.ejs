@@ -1,10 +1,10 @@
 <% include ./partials/header %>
 
     <div class="row">
-        <div class="ui four column grid">
-            <div class="eight wide column">
+        <div class="ui stackable twelve column page grid">
+            <div class="ten wide column">
                 <div class="ui container segment">
-                    <img class="ui centered medium bordered image huge" src="<%= image.url%>" alt="">
+                    <img class="ui centered medium bordered image massive" src="<%= image.url%>" alt="">
                     <hr class="style-two hr-show">
                     <% if (!currentUser) { %>
                         <h3 id="comment-instructions">Log in To Leave a Comment!</h3>
@@ -28,7 +28,7 @@
             </div>
 
             <% if (!currentUser) { %>
-                <div class="four wide right floated column right-form">
+                <div class="two wide right floated column right-form">
                         <h4 class="form-title">Singup or Login.</h4>
                         <div class="ui container segment form">
                             <form class="ui form signup" action="/signup" method=POST>
@@ -53,7 +53,7 @@
                         </div>
                     </div>   
             <% } else { %>
-                <div class="four wide right floated column right-form">
+                <div class="five wide right floated column right-form">
                         <h4 class="form-title">Leave a comment!</h4>
                         <div class="ui container segment form">
                             <form class="ui form" action="/images/<%= image._id %>/comments" method="POST">

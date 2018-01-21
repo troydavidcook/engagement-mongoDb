@@ -198,3 +198,5 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Engagement running on port ${port}`);
 });
+
+// extract middleware to its own directory
