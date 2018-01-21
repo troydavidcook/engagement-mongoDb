@@ -152,15 +152,29 @@ app.post('/images/:id/comments', (req, res) => {
   });
 });
 
+app.get('/images/:id/comments/:comment_id/edit', (req, res) => {
+  const imageId = req.params.id;
+  const commentId = req.params.comment_id;
+  Comment.findById(commentId, (err, fetchedComment) => {
+    if (err) {
+      req.flash('error', 'Comment not found');
+      res.redirect('back');
+    } else {
+      res.render('edit', { image_id: req.params.id, comment: fetchedComment });
+    }
+  });
+});
+
 app.put('/images/:id/comments/:comment_id', (req, res) => {
   const commentId = req.params.comment_id;
   const imageId = req.params.id;
   Comment.findByIdAndUpdate(commentId, req.body.comment, (err, updatedComment) => {
     if (err) {
       req.flash('error', 'Comment not found, apologies.');
-      res.redirect(`/images/${imageId}`);
+      res.redirect('back');
     } else {
-      res.render(`/images/${imageId}`);
+      req.flash('success', 'Comment Updated!');
+      res.redirect(`/images/${imageId}`);
     }
   });
 });
@@ -172,6 +186,9 @@ app.delete('/images/:id/comments/:comment_id', (req, res) => {
     if (err) {
       req.flash('error', 'Comment not found, apologies');
       res.redirect(`/images/${imageId}`);
+    } else {
+      req.flash('success', 'Successfully Deleted Comment!');
+      return res.redirect('back');
     }
   });
 });
