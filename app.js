@@ -73,11 +73,11 @@ app.post('/signup', (req, res) => {
     console.log(newUser);
     if (err) {
       req.flash('error', err.message);
-      return res.redirect('back');
+      return res.redirect('/signup');
     }
     passport.authenticate('local')(req, res, () => {
       req.flash('success', `Welcome to The Proposal, ${user.username}!`);
-      return res.redirect('/images');
+      return res.redirect('back');
     });
   });
 });
@@ -90,7 +90,7 @@ app.post('/login', passport.authenticate(
   'local',
   {
     successRedirect: '/images',
-    failureRedirect: '/login',
+    failureRedirect: '/signup',
   },
 ), (req, res) => {
 });
@@ -98,7 +98,7 @@ app.post('/login', passport.authenticate(
 app.get('/logout', (req, res) => {
   req.logout();
   req.flash('success', 'Successfully logged out!');
-  res.redirect('/');
+  res.redirect('back');
 });
 
 // GET Routes

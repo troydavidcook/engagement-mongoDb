@@ -22,6 +22,14 @@ textarea {
     height: 130px;
 }
 
+a {
+    color:rgb(91, 167, 152);
+}
+
+a:hover {
+    color:rgb(91, 167, 152);
+}
+
 hr.style-two {
     border: 0;
     height: 1px;
@@ -108,9 +116,9 @@ span#amp {
     margin-right: 30px;
 }
 
-.ui.dividing.header.intro {
-    margin-top: 50px;
-    margin-bottom: 100px;
+.ui.dividing.header {
+    margin-top: 45px;
+    margin-bottom: 130px;
 }
 
 .ui.fluid-image {
@@ -145,10 +153,16 @@ span#amp {
 #comment-date {
     float: right;
     margin-right: 15px;
+    font-size: .9em;
+    font-style: oblique;
 }
 
 .intro {
+    font-size: 1.4em;
     margin-bottom: 750px;
+    margin-top: 30px;
+    font-family: 'Great Vibes', cursive;
+    color: rgba(0, 0, 0, .6);
 }
 
 .ui.teal.basic.button.mini.signup {
@@ -164,7 +178,7 @@ span#amp {
     float: right;
     font-family: 'Great Vibes', cursive;
     font-size: 24px;
-    color: black;
+    color: rgba(0, 0, 0, .6);
     margin-top: -30px;
     margin-right: 78px;
 }
