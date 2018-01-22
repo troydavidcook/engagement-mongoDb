@@ -1,10 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+    
+    <head>
+        <meta charset="UTF-8">
+        <!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto|Tangerine" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
@@ -13,7 +14,31 @@
 </head>
 
 <body>
-    <div class="ui menu">
+    <nav class="navbar navbar-default navbar-color">
+        <div class="container-fluid">
+            <div class="navbar-header logo">
+                <a class="navbar-brand" id="logo" href="/">Kevin & Dallyn | An Engagement</a>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="nav-text"><a href="/">Home</a></li>
+                    <li class="nav-text"><a href="/images">Photos</a></li>
+                </ul>    
+                <ul class="nav navbar-nav navbar-right">
+                    <% if (!currentUser) { %>
+                        <li class="nav-text"><a href="/login">Login</a></li>
+                        <span><li class="nav-text"></li></span>
+                        <li class="nav-text"><a href="/signup">Sign Up</a></li>
+                    <% } else { %>    
+                        <li class="nav-text"><a href="/">Signed in as <%= currentUser.username %></a>
+                        <li class="nav-text"><a href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- <div class="ui menu">
         <div class="header item">
             <a href="/"><h3 class="logo">Kevin & Dallyn | An Engagement</h3></a>
         </div>
@@ -40,8 +65,7 @@
                 </a></span>
             <% } %>
         </div>
-    </div>
-
+    </div> -->
     <div class="ui container">
         <% if (error && error.length > 0) { %>
             <div class="ui negative message">
@@ -53,4 +77,5 @@
                 <%= success %>
             </div>
         <% } %>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </div>

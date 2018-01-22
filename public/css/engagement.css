@@ -31,9 +31,26 @@ a {
     color:rgb(91, 167, 152);
 }
 
-a:hover {
-    color:rgb(91, 167, 152);
+ul {
+    list-style-type: none;
+    margin: 10px 10px 0px 10px;
 }
+
+li {
+    list-style-type: none;
+    display: inline;
+}
+
+li.nav-item {
+    margin-top: 15px;
+}
+
+a:hover {
+    color:rgb(0, 0, 0);
+}
+
+a:focus {
+    color:rgb(0, 0, 0);}
 
 hr.style-two {
     border: 0;
@@ -45,6 +62,27 @@ hr.style-three {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+h4:first-child{
+    margin-top: 50px;
+}
+
+div.ui.container.segment {
+     margin-left: 90px;
+    }
+
+div.ui.container.segment.form {
+    /* min-width: 200px; */
+    margin-right: 90px;
+    color: rgba(0,0,0,0.2);
+    font-family: 'Great Vibes', cursive;
+}
+
+.ui.positive.message {
+    border-color: black;
+    color: rgba(0, 0, 0);
+    background-color: rgba(255,255,255, .8);
 }
 
 .hr-show {
@@ -64,11 +102,21 @@ span#amp {
                 
     }
 
-.logo {
-    color: black;
-    margin-top: 0;
-    text-shadow: none;
-    font-size: 24px;
+.navbar {
+    -webkit-box-shadow: 0 1px 1px -1px #999;
+    -moz-box-shadow: 0 1px 1px -1px #999;
+    box-shadow: 0 1px 1px -1px #9991
+    border-radius: 0px;
+
+}
+
+.intro {
+    font-size: 1.4em;
+    line-height: 1.2em;
+    margin-bottom: 750px;
+    margin-top: 30px;
+    font-family: 'Great Vibes', cursive;
+    color: rgba(0, 0, 0, .6);
 }
 
 .item {
@@ -109,18 +157,8 @@ span#amp {
     /* margin-right: 10px; */
 }
 
-.image-column {
-    min-width: 30%;
-}
-
 .ui.container.main {
     margin-top: 10px;
-}
-
-div.ui.container.segment.form {
-    width: 500px;
-    color: rgba(0,0,0,0.2);
-    font-family: 'Great Vibes', cursive;
 }
 
 .ui.dividing.header {
@@ -151,10 +189,6 @@ div.ui.container.segment.form {
     text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
 }
 
-h4:first-child{
-    margin-top: 50px;
-}
-
 .edit-form-title {
     margin-top: 30px;
     text-align: center;
@@ -163,6 +197,45 @@ h4:first-child{
     font-size: 34px;
     font-weight: 200;
     text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+}
+
+.ui.teal.basic.button.mini.signup {
+    margin-bottom: 15px;
+}
+
+
+.nav-text {
+    margin-top: 8px;
+    margin-bottom: -8px;
+    font-family: lato;
+}
+
+.nav-right {
+    float: right;
+    margin-right: 15px;
+    display: inline;
+}
+.navbar {
+    background-color:rgba(255, 255, 255, .75); 
+    width: 100%;
+}
+
+.nav-link {
+    display: inline;
+    margin: 15px 10px 0px 10px;
+    display: inline;
+}
+
+.fa {
+    margin-left: 10px;
+}
+
+#logo {
+    color: black;
+    margin-bottom: 5px;
+    margin-top: 8px;
+    text-shadow: none;
+    font-size: 20px;
 }
 
 #comment-instructions {
@@ -177,19 +250,6 @@ h4:first-child{
     font-size: .9em;
     font-style: oblique;
 }
-
-.intro {
-    font-size: 1.4em;
-    margin-bottom: 750px;
-    margin-top: 30px;
-    font-family: 'Great Vibes', cursive;
-    color: rgba(0, 0, 0, .6);
-}
-
-.ui.teal.basic.button.mini.signup {
-    margin-bottom: 15px;
-}
-
 #show-form {
     text-align: center;
     margin-top: 15px;
@@ -218,4 +278,9 @@ h4:first-child{
     margin-top: 20px;
     margin-bottom: -15px;
     font-size: 26px;
+}
+
+#behind-scenes {
+    margin-bottom: 30px;
+    font-size: 1.4em;
 }
