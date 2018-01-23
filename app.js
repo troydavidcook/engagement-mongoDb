@@ -24,7 +24,7 @@ const commentRoutes = require('./routes/comments');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
+mongoose.connect('mongodb://localhost/engagementk&d');
 
 // seedDatabase();
 
@@ -59,123 +59,6 @@ app.use((req, res, next) => {
 
 app.set('view engine', 'ejs');
 
-// =======================
-//  Restful routing below
-// =======================
-
-// Index routes
-// app.get('/', (req, res) => {
-//   res.render('./index/index');
-// });
-
-// app.get('/signup', (req, res) => {
-//   res.render('index/signup');
-// });
-
-// app.post('/signup', (req, res) => {
-//   const newUser = new User({ username: req.body.username });
-//   User.register(newUser, req.body.password, (err, user) => {
-//     console.log(newUser);
-//     if (err) {
-//       req.flash('error', err.message);
-//       return res.redirect('/signup');
-//     }
-//     passport.authenticate('local')(req, res, () => {
-//       req.flash('success', `Welcome to The Proposal, ${user.username}!`);
-//       return res.redirect('back');
-//     });
-//   });
-// });
-
-// app.get('/login', (req, res) => {
-//   res.render('./index/login');
-// });
-
-// app.post('/login', passport.authenticate(
-//   'local',
-//   {
-//     successRedirect: '/images',
-//     failureRedirect: '/signup',
-//   },
-// ), (req, res) => {
-// });
-
-// app.get('/logout', (req, res) => {
-//   req.logout();
-//   req.flash('success', 'Successfully logged out!');
-//   res.redirect('back');
-// });
-
-// // GET Routes
-
-
-// app.post('/images/:id/comments', (req, res) => {
-//   const imageId = req.params.id;
-//   Image.findById(imageId, (err, image) => {
-//     if (err) {
-//       req.flash('error', 'Resolving Issue, Please Check Back.');
-//       res.redirect('/images');
-//     } else {
-//       Comment.create(req.body.comment, (error, comment) => {
-//         if (err) {
-//           req.flash('error', 'Error connecting to server, please check back later.');
-//           res.redirect('/images');
-//         } else {
-//           comment.author.id = req.user._id;
-//           comment.author.username = req.user.username;
-//           comment.save();
-//           image.comments.push(comment);
-//           image.save();
-//           console.log(image.comments);
-//           req.flash('success', 'Successfully added comment!');
-//           return res.redirect(`/images/${imageId}`);
-//         }
-//       });
-//     }
-//   });
-// });
-
-// app.get('/images/:id/comments/:comment_id/edit', (req, res) => {
-//   const imageId = req.params.id;
-//   const commentId = req.params.comment_id;
-//   Comment.findById(commentId, (err, fetchedComment) => {
-//     if (err) {
-//       req.flash('error', 'Comment not found');
-//       res.redirect('back');
-//     } else {
-//       res.render('edit', { image_id: req.params.id, comment: fetchedComment });
-//     }
-//   });
-// });
-
-// app.put('/images/:id/comments/:comment_id', (req, res) => {
-//   const commentId = req.params.comment_id;
-//   const imageId = req.params.id;
-//   Comment.findByIdAndUpdate(commentId, req.body.comment, (err, updatedComment) => {
-//     if (err) {
-//       req.flash('error', 'Comment not found, apologies.');
-//       res.redirect('back');
-//     } else {
-//       req.flash('success', 'Comment Updated!');
-//       res.redirect(`/images/${imageId}`);
-//     }
-//   });
-// });
-
-// app.delete('/images/:id/comments/:comment_id', (req, res) => {
-//   const commentId = req.params.comment_id;
-//   const imageId = req.params.id;
-//   Comment.findByIdAndRemove(commentId, (err) => {
-//     if (err) {
-//       req.flash('error', 'Comment not found, apologies');
-//       res.redirect(`/images/${imageId}`);
-//     } else {
-//       req.flash('success', 'Successfully Deleted Comment!');
-//       return res.redirect('back');
-//     }
-//   });
-// });
-
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
@@ -186,4 +69,3 @@ app.use(indexRoutes);
 app.use('/images', imageRoutes);
 app.use('/images/:id/comments', commentRoutes);
 
-// extract middleware to its own directory
