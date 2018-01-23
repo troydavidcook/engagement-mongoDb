@@ -10,8 +10,16 @@ middlewareObj.isLoggedIn = function isLoggedIn(res, req, next) {
   res.redirect('/images/:id');
 };
 
+middlewareObj.isLoggedIn = function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  req.flash('error', 'Must be logged in.');
+  return res.redirect('/login');
+};
+
 middlewareObj.checkCommentOwnership = function checkCommentOwnership(req, res, next) {
-  const wineId = req.params.id;
+  const imageId = req.params.id;
   const commentId = req.params.comment_id;
   if (req.isAuthenticated()) {
     Comment.findById(commentId, (err, fetchedComment) => {

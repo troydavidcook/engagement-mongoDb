@@ -166,14 +166,13 @@ span#amp {
     margin-bottom: 130px;
 }
 
-.ui.fluid-image {
-    display: inline;
-    margin: 0, 20px;
-}
-
 .ui.centered.image {
     margin-top: 40px;
     margin-bottom: 80px;
+}
+
+.ui.container.segment.form {
+    width: 400px;
 }
 
 .right-form {
@@ -227,7 +226,7 @@ span#amp {
 }
 
 .fa {
-    margin-left: 10px;
+    padding: 0px 5px;
 }
 
 #logo {
@@ -280,7 +279,7 @@ span#amp {
     font-size: 26px;
 }
 
-#behind-scenes {
+#behind-scenes-text {
     margin-bottom: 30px;
     font-size: 1.4em;
 }
