@@ -30,13 +30,13 @@ const seedBtsImages = () => {
     if (err) {
       console.log('Error: ', err);
     }
-    console.log('Images removed');
+    console.log('BtsImages removed');
     seedBtsPageImages.forEach((seed) => {
       BtsImage.create(seed, (err) => {
         if (err) {
           console.log('Error: ', err);
         } else {
-          console.log('Bts_Image added.');
+          console.log('BtsImage added.');
         }
       });
     });

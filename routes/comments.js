@@ -1,9 +1,9 @@
-const express    = require('express');
+const express = require('express');
 const middleware = require('../middleware');
-const Comment    = require('../models/comments');
-const Image      = require('../models/images');
+const Comment = require('../models/comments');
+const Image = require('../models/images');
 
-const router     = express.Router({ mergeParams: true });
+const router = express.Router({ mergeParams: true });
 
 
 // New comment route
@@ -19,6 +19,7 @@ const router     = express.Router({ mergeParams: true });
 // });
 
 // Important association/ Create new comment route
+
 router.post('/', middleware.isLoggedIn, (req, res) => {
   const imageId = req.params.id;
   Image.findById(imageId, (err, image) => {
