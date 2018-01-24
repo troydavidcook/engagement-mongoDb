@@ -28,7 +28,7 @@ const commentRoutes = require('./routes/comments');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://troydavidcook:l0gical1@ds111598.mlab.com:11598/k-d-proposal', { useMongoClient: true });
+mongoose.connect('mongodb://troydavidcook:l0gical1@ds113648.mlab.com:13648/kevin-dallyn-proposal', { useMongoClient: true });
 // mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
 
 // seedImages();
