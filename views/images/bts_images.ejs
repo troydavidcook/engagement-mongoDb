@@ -5,8 +5,8 @@
             <h3 id="scroll-down-text">Behind The Scenes!</h3>
 
             <% bts_image.forEach((photo) => { %>
-                <a href="/images/<%= photo._id %>"><img class="ui centered image bordered massive" src="<%= photo.url %>" alt=""></a>
-                <h4><a id="a-leave-comment" href="/images/<%= photo._id %>">Leave a comment</a></h4>
+                <a href="/bts_images/<%= photo._id %>"><img class="ui centered image bordered massive" src="<%= photo.url %>" alt=""></a>
+                <h4><a id="a-leave-comment" href="/bts_images/<%= photo._id %>">Leave a comment</a></h4>
                 <hr class="style-two">
             <% }); %>
             <a href="/images"><h3 id="behind-scenes-text">Back to the Start!</h3></a>

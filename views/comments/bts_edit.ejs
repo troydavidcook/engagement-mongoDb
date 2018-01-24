@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+  <div class="ui container main">
+        <h4 class="edit-form-title">Edit Comment</h4>
+      <div class="row">
+        <div class="ui container segment form">
+            <form action="/bts_images/<%= bts_image_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <textarea class="field" type="text" name="comment[text]" placeholder="Add comment"><%= comment.text %></textarea>
+                </div>
+                    <button class="ui yellow basic button mini">Edit</button>     
+            </form>
+        </div>
+      </div>
+  </div>  
+
+
+<% include ../partials/footer %>
