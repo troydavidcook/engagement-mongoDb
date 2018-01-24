@@ -26,7 +26,7 @@ const commentRoutes = require('./routes/comments');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://troydavidcook:l0gical@ds113648.mlab.com:13648/heroku_b61xz9hc');
+mongoose.connect('mongodb://troydavidcook:l0gical@ds113648.mlab.com:13648/heroku_b61xz9hc', { useMongoClient: true });
 // mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
 
 seedImages();
