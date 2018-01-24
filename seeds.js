@@ -27,10 +27,10 @@ const seedPageImages = [
     url: 'https://i.imgur.com/biA0qL4.jpg',
   },
   {
-    url: 'https://i.imgur.com/FLJGJut.jpg',
+    url: 'https://i.imgur.com/EeUL98S.jpg',
   },
   {
-    url: 'https://i.imgur.com/EeUL98S.jpg',
+    url: 'https://i.imgur.com/FLJGJut.jpg',
   },
 ];
 
