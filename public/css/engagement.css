@@ -103,10 +103,6 @@ img.ui.bordered.image {
     border-radius: 0px;
 }
 
-/* .nav-text {
-    margin: 0px -5px;
-} */
-
 .intro {
     font-size: 1.4em;
     line-height: 1.2em;
@@ -231,7 +227,7 @@ span#amp {
 #comment-instructions {
     margin-top: -30px;
     margin-bottom: 40px;
-    font-size: 1.2em;
+    font-size: 1.6em;
 }
 
 #comment-date {
