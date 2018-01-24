@@ -1,0 +1,80 @@
+<% include ../partials/header %>
+
+    <div class="row">
+        <div class="ui stackable twelve column page grid">
+            <div class="ten wide column">
+                <div class="ui container segment">
+                    <img class="ui centered medium bordered image massive" src="<%= bts_image.url%>" alt="">
+                    <hr class="style-two hr-show">
+                    <% if (!currentUser) { %>
+                        <h3 id="comment-instructions">Log in To Leave a Comment!</h3>
+                    <% } %>
+                    <% bts_image.comments.forEach((comment) => { %>
+                    <p id="comment-author"><strong> <%= comment.author.username %></strong>
+                    <span id="comment-date"><%= comment.created.toDateString() %></span></p>
+                    <p id="comment-text"><%= comment.text %></p>
+                    <% if (currentUser && comment.author.id.equals(currentUser._id)) { %>
+                        <a class="ui yellow basic button mini" 
+                            href="/images/<%= image._id %>/comments/<%= comment._id %>/edit">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <span><form class="delete-button" action="/images/<%= image._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                            <button class="ui red basic button mini"><i <i class="fa fa-trash" aria-hidden="true"></i></i></button>
+                            </form></span>
+                    <% } %>
+                    <hr class="style-three">
+                    <% }) %>
+                </div>
+            </div>
+
+            <% if (!currentUser) { %>
+                <div class="five wide right floated column right-form">
+                        <h4 class="form-title">Singup or Login.</h4>
+                        <div class="ui container segment form">
+                            <form class="ui form signup" action="/signup" method=POST>
+                                <div class="field">
+                                    <input class="ui input small" type="text" name="username" placeholder="username">
+                                </div>
+                                <div class="field">
+                                    <input type="password" name="password" placeholder="password">
+                                </div>
+                                <button type ="submit" class="ui teal basic button mini signup">Signup</button>
+                            </form>
+        
+                            <form class="ui form" action="/login" method="POST">
+                                <div class="field">
+                                    <input type="text" name="username" placeholder="username">
+                                </div>
+                                <div class="field">
+                                    <input class="ui transparent input mini" type="password" name="password" placeholder="password">
+                                </div>
+                                <button type="submit" class="ui teal basic button mini">Login</button>
+                            </form>
+                        </div>
+                    </div>   
+            <% } else { %>
+                <div class="five wide right floated column right-form">
+                        <h4 class="form-title">Leave a comment!</h4>
+                        <div class="ui container segment form">
+                            <form class="ui form" action="/images/<%= image._id %>/comments" method="POST">
+                                <div class="field">
+                                    <textarea name="comment[text]" id="" cols="20" rows="10"></textarea>
+                                </div>
+                                <button type="submit" class="ui teal basic button mini">Add Comment</button>
+                            </form>
+                        </div>
+                    </div>
+            <% } %>
+
+             
+        </div>
+    </div>    
+    
+
+    <% include ../partials/footer %>
+
+
+
+
+    <!-- Post comments under photo.id -->
+    <!-- Show edit and delete buttons for comment owner. -->
