@@ -241,7 +241,8 @@ img.ui.bordered.image {
     margin-bottom: 5px;
     margin-top: 8px;
     text-shadow: none;
-    font-size: 20px;
+    font-size: 26px;
+    font-family: 'Great Vibes', cursive;
 }
 
 #comment-instructions {

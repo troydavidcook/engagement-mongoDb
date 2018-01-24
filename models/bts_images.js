@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // This schema shows the 'ref'erence to different model, like a key would in pSQL.
-const bts_imageSchema = new mongoose.Schema({
+const btsImageSchema = new mongoose.Schema({
   url: String,
   author: {
     id: {
@@ -18,4 +18,4 @@ const bts_imageSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model('Bts_image', bts_imageSchema);
+module.exports = mongoose.model('BtsImage', btsImageSchema);

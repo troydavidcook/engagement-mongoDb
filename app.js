@@ -11,15 +11,15 @@ const passport              = require('passport');
 const mongoose              = require('mongoose');
 const express               = require('express');
 const mongoDb               = require('mongodb');
-const seedBtsImages         = require('./seeds');
 const seedImages            = require('./seeds');
+const seedBtsImages         = require('./seedsbts');
 const path                  = require('path');
 
 // const router = express.Router();
 
 const indexRoutes = require('./routes/index');
 const imageRoutes = require('./routes/images');
-const bts_imageRoutes = require('./routes/bts_images');
+const btsImageRoutes = require('./routes/bts_images');
 const commentRoutes = require('./routes/comments');
 
 
@@ -29,7 +29,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
 
 seedImages();
-// seedBtsImages();
+seedBtsImages();
 
 // ==================
 //   Passport Config
@@ -70,6 +70,6 @@ app.listen(port, () => {
 
 app.use(indexRoutes);
 app.use('/images', imageRoutes);
-app.use('/bts_images', bts_imageRoutes);
+app.use('/bts_images', btsImageRoutes);
 app.use('/images/:id/comments', commentRoutes);
 
