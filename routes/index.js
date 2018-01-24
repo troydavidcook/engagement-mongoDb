@@ -48,7 +48,7 @@ router.post('/signup', (req, res) => {
     }
     passport.authenticate('local')(req, res, () => {
       req.flash('success', `Welcome to The Proposal, ${user.username}!`);
-      return res.redirect('back');
+      return res.redirect('/images');
     });
   });
 });

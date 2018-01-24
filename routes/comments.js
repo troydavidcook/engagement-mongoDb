@@ -36,7 +36,7 @@ router.post('/', middleware.isLoggedIn, (req, res) => {
           comment.author.username = req.user.username;
           // save comment
           comment.save();
-          image.comments.push(comment._id);
+          image.comments.push(comment);
           image.save();
           req.flash('success', 'Successfully created comment.');
           res.redirect(`/images/${imageId}`);
