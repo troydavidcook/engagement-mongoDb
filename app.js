@@ -31,7 +31,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://troydavidcook:l0gical1@ds113358.mlab.com:13358/k-d-engagement', { useMongoClient: true });
 // mongoose.connect('mongodb://localhost/engagementk&d', { useMongoClient: true });
 
-seedImages();
+// seedImages();
 // seedBtsImages();
 
 // ==================
