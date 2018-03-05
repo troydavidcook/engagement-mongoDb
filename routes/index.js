@@ -60,7 +60,7 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate(
   'local',
   {
-    successRedirect: '/images',
+    successRedirect: 'back',
     failureRedirect: '/signup',
   },
 ), (req, res) => {

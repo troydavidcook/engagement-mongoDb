@@ -6,6 +6,7 @@
                 <div class="ui container segment">
                     <img class="ui centered medium bordered image massive" src="<%= image.url%>" alt="">
                     <hr class="style-two hr-show">
+
                     <% if (!currentUser) { %>
                         <h3 id="comment-instructions">Log in To Leave a Comment!</h3>
                     <% } %>
@@ -26,7 +27,7 @@
                     <% }) %>
                 </div>
             </div>
-
+            
             <% if (!currentUser) { %>
                 <div class="five wide right floated column right-form">
                         <h4 class="form-title">Singup or Login.</h4>
